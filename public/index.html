@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Business 3D — Indian Cities Edition</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="setup-screen" class="overlay-screen">
+    <div class="panel setup-panel">
+      <h1>🏙️ Business 3D</h1>
+      <p class="subtitle">The classic Indian property trading game, in 3D</p>
+      <div id="player-inputs"></div>
+      <button id="add-player-btn" class="btn secondary">+ Add Player</button>
+      <button id="start-game-btn" class="btn primary">Start Game</button>
+    </div>
+  </div>
+
+  <canvas id="game-canvas"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="players-panel" class="panel"></div>
+
+    <div id="dice-panel" class="panel">
+      <div id="dice-result">Roll to begin!</div>
+      <button id="roll-btn" class="btn primary">🎲 Roll Dice</button>
+      <button id="end-turn-btn" class="btn secondary" disabled>End Turn</button>
+    </div>
+
+    <div id="log-panel" class="panel">
+      <div id="log"></div>
+    </div>
+  </div>
+
+  <div id="modal-backdrop" class="hidden">
+    <div id="modal" class="panel"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

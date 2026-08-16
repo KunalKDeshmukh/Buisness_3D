@@ -1,0 +1,79 @@
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #eee;
+}
+#game-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: block; }
+
+.hidden { display: none !important; }
+
+.panel {
+  background: rgba(20, 20, 35, 0.88);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+}
+
+.overlay-screen {
+  position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(10, 10, 20, 0.75); z-index: 50;
+}
+.setup-panel { width: 380px; max-width: 90vw; text-align: center; }
+.setup-panel h1 { margin: 0 0 4px; font-size: 28px; }
+.subtitle { color: #aab; margin-top: 0; margin-bottom: 20px; font-size: 13px; }
+
+.player-row { display: flex; gap: 8px; margin-bottom: 10px; align-items: center; }
+.player-row input[type="text"] {
+  flex: 1; padding: 8px 10px; border-radius: 8px; border: 1px solid #444;
+  background: #22223a; color: #eee; font-size: 14px;
+}
+.player-row .swatch { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; border: 2px solid #fff3; }
+
+.btn {
+  border: none; border-radius: 10px; padding: 10px 16px; font-size: 14px; font-weight: 600;
+  cursor: pointer; margin-top: 8px; width: 100%; transition: transform 0.1s ease, opacity 0.2s;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn.primary { background: linear-gradient(135deg, #ff9800, #e91e8c); color: white; }
+.btn.secondary { background: #2c2c45; color: #ddd; }
+.btn.danger { background: #c62828; color: white; }
+
+#hud { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
+#hud .panel { pointer-events: auto; }
+
+#players-panel {
+  position: absolute; top: 16px; left: 16px; width: 240px; max-height: 60vh; overflow-y: auto;
+}
+.player-card {
+  padding: 10px; border-radius: 10px; margin-bottom: 8px; border-left: 5px solid #888;
+  background: rgba(255,255,255,0.04);
+}
+.player-card.active { background: rgba(255,255,255,0.12); box-shadow: 0 0 0 1px rgba(255,255,255,0.2); }
+.player-card.bankrupt { opacity: 0.4; text-decoration: line-through; }
+.player-card .pname { font-weight: 700; font-size: 14px; }
+.player-card .pmoney { font-size: 13px; color: #9f9; }
+.player-card .pprops { font-size: 11px; color: #aab; margin-top: 4px; }
+
+#dice-panel {
+  position: absolute; top: 16px; right: 16px; width: 200px; text-align: center;
+}
+#dice-result { font-size: 15px; margin-bottom: 10px; min-height: 20px; }
+
+#log-panel {
+  position: absolute; bottom: 16px; left: 16px; width: 380px; max-width: calc(100vw - 32px);
+  max-height: 22vh; overflow-y: auto;
+}
+#log div { font-size: 12px; padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.06); color: #ccd; }
+
+#modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 60;
+  display: flex; align-items: center; justify-content: center;
+}
+#modal { width: 360px; max-width: 90vw; text-align: center; }
+#modal h2 { margin-top: 0; }
+#modal .price-tag { font-size: 22px; color: #ffca28; font-weight: 700; margin: 10px 0; }

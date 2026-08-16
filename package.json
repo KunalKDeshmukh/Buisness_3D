@@ -1,0 +1,12 @@
+{
+  "name": "business-3d-game",
+  "version": "1.0.0",
+  "description": "3D Business (Indian Monopoly) game - full stack with Three.js frontend and Express backend",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
